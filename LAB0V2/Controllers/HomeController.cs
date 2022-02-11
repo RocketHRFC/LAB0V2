@@ -6,11 +6,48 @@ namespace LAB0V2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        Cliente cliente1;
+        Cliente cliente2;
+        Cliente cliente3;
+        Cliente cliente4;
+        List<Cliente> ListaClientes;
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            cliente1 = new Cliente
+            {
+                Nombre = "Mario",
+                Apellido = "Aranki",
+                Telefono = 12436,
+                Detalles = "cliente1"
+            };
+            cliente2 = new Cliente
+            {
+                Nombre = "Marcus",
+                Apellido = "Flores",
+                Telefono = 12536,
+                Detalles = "cliente2"
+            };
+            cliente3 = new Cliente
+            {
+                Nombre = "Edio",
+                Apellido = "Ramos",
+                Telefono = 12436,
+                Detalles = "cliente3"
+            };
+            cliente4 = new Cliente
+            {
+                Nombre = "Marlon",
+                Apellido = "Perez",
+                Telefono = 12436,
+                Detalles = "cliente4"
+            };
+
+            ListaClientes = new List<Cliente>();
+            ListaClientes.Add(cliente1);
+            ListaClientes.Add(cliente2);
+            ListaClientes.Add(cliente3);
+            ListaClientes.Add(cliente4);
         }
 
         public IActionResult Index()
