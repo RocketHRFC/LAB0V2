@@ -1,0 +1,6 @@
+*.exe
+/bin/
+*.suo
+*.dll.config
+*.pdb
+/.vs/
