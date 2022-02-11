@@ -10,6 +10,12 @@ namespace LAB0V2.Controllers
         Cliente cliente2;
         Cliente cliente3;
         Cliente cliente4;
+        Cliente cliente5;
+        Cliente cliente6;
+        Cliente cliente7;
+        Cliente cliente8;
+        Cliente cliente9;
+        Cliente cliente10;
         List<Cliente> ListaClientes;
 
         public HomeController(ILogger<HomeController> logger)
@@ -42,12 +48,121 @@ namespace LAB0V2.Controllers
                 Telefono = 12436,
                 Detalles = "cliente4"
             };
-
+            cliente5 = new Cliente
+            {
+                Nombre = "Adrian", 
+                Apellido="Garavito",
+                Telefono = 789456123,
+                Detalles="cliente5"
+            };
+            cliente6 = new Cliente
+            {
+                Nombre="Eduardo",
+                Apellido="Lopez",
+                Telefono=456789123,
+                Detalles="cliente6",
+            };
+            cliente7 = new Cliente
+            {
+                Nombre="Rodrigo",
+                Apellido="Palma",
+                Telefono=127984565,
+                Detalles="cliente7",
+            };
+            cliente8 = new Cliente
+            {
+                Nombre="Adham",
+                Apellido="Aranki",
+                Telefono=1845658456,
+                Detalles="cliente8",
+            };
+            cliente9 = new Cliente
+            {
+                Nombre="Fernando",
+                Apellido="Lopez",
+                Telefono=18456556,
+                Detalles="cliente9",
+            };
+            cliente10 = new Cliente
+            {
+                Nombre="Alonso",
+                Apellido="Velasquez",
+                Telefono=153858456,
+                Detalles="cliente10",
+            };
+          
             ListaClientes = new List<Cliente>();
             ListaClientes.Add(cliente1);
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
             ListaClientes.Add(cliente4);
+            ListaClientes.Add(cliente5);
+            ListaClientes.Add(cliente6);
+            ListaClientes.Add(cliente7);
+            ListaClientes.Add(cliente8);
+            ListaClientes.Add(cliente9);
+            ListaClientes.Add(cliente10);
+
+            void ModBubbleSortNombre(List<Cliente> lista)
+            {
+                Cliente aux;
+                int n = lista.Count;
+                int i = 1;
+                bool bandera = false;
+                while (bandera == false && i < n)
+                {
+                    bandera = true;
+                    for (int j = 0; j < (n - i); j++)
+                    {
+                        if (booleano(lista[j].Nombre, lista[j + 1].Nombre))
+                        {
+                            aux = lista[j];
+                            lista[j] = lista[j + 1];
+                            lista[j + 1] = aux;
+                            bandera = false;
+                        }
+                    }
+                    i = i + 1;
+                }
+
+            }
+            void ModBubbleSortApellido(List<Cliente> lista)
+            {
+                Cliente aux;
+                int n = lista.Count;
+                int i = 1;
+                bool bandera = false;
+                while (bandera == false && i < n)
+                {
+                    bandera = true;
+                    for (int j = 0; j < (n - i); j++)
+                    {
+                        if (booleano(lista[j].Apellido, lista[j + 1].Apellido))
+                        {
+                            aux = lista[j];
+                            lista[j] = lista[j + 1];
+                            lista[j + 1] = aux;
+                            bandera = false;
+                        }
+                    }
+                    i = i + 1;
+                }
+
+            }
+            bool booleano(string string1, string string2)
+            {
+                string newString1 = string1.ToUpper();
+                string newString2 = string2.ToUpper();
+                if (newString1.CompareTo(newString2) > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
         }
 
         public IActionResult Index()
