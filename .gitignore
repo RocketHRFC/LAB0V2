@@ -4,3 +4,5 @@
 *.dll.config
 *.pdb
 /.vs/
+.vs/
+bin/

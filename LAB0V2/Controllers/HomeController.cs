@@ -17,6 +17,7 @@ namespace LAB0V2.Controllers
         Cliente cliente9;
         Cliente cliente10;
         List<Cliente> ListaClientes;
+        List<Cliente> ListaClientes2;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -92,6 +93,7 @@ namespace LAB0V2.Controllers
             };
           
             ListaClientes = new List<Cliente>();
+            ListaClientes2 = new List<Cliente>();
             ListaClientes.Add(cliente1);
             ListaClientes.Add(cliente2);
             ListaClientes.Add(cliente3);
@@ -103,7 +105,19 @@ namespace LAB0V2.Controllers
             ListaClientes.Add(cliente9);
             ListaClientes.Add(cliente10);
 
-            void ModBubbleSortNombre(List<Cliente> lista)
+            ListaClientes2.Add(cliente1);
+            ListaClientes2.Add(cliente2);
+            ListaClientes2.Add(cliente3);
+            ListaClientes2.Add(cliente4);
+            ListaClientes2.Add(cliente5);
+            ListaClientes2.Add(cliente6);
+            ListaClientes2.Add(cliente7);
+            ListaClientes2.Add(cliente8);
+            ListaClientes2.Add(cliente9);
+            ListaClientes2.Add(cliente10);
+
+
+            void ModBubbleSortNombre(ref List<Cliente> lista)
             {
                 Cliente aux;
                 int n = lista.Count;
@@ -126,7 +140,7 @@ namespace LAB0V2.Controllers
                 }
 
             }
-            void ModBubbleSortApellido(List<Cliente> lista)
+            void ModBubbleSortApellido(ref List<Cliente> lista)
             {
                 Cliente aux;
                 int n = lista.Count;
@@ -163,6 +177,19 @@ namespace LAB0V2.Controllers
                 }
 
             }
+
+            ModBubbleSortApellido(ref ListaClientes);
+            ModBubbleSortNombre(ref ListaClientes2);
+        }
+
+        public List<Cliente> ListaApellido()
+        {
+            return ListaClientes;
+        }
+
+        public List<Cliente> ListaNombres()
+        {
+            return ListaClientes2;
         }
 
         public IActionResult Index()
